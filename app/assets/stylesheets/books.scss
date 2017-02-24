@@ -118,14 +118,13 @@ div.wrapper.book_show {
       }
     }
   }
-  // 下記追加
+
   div.my_review_wrapper {
     margin-top: 20px;
     div.footer_menu {
       margin-top: 10px;
       div.rank {
         float: left;
-        
         label {
           margin-left: 10px;
         }
@@ -168,7 +167,6 @@ div.wrapper.book_show {
           div.rank {
             display: inline-block;
             margin-left: 10px;
-//          width:20px;
           }
           div.delete {
             float: right;
@@ -188,4 +186,21 @@ div.wrapper.book_show {
 
 div.wrapper.book_input {
   margin-top: 0;
+}
+// 下記追加
+div.filter {
+  > div {
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+  }
+  a {
+    color: black;
+  }
+  div.bold {
+    font-weight: bold;
+    a {
+      color: blue;
+    }
+  }
 }
