@@ -18,10 +18,12 @@
 
   <% end %>
   
-   <div class="category">
-      <div <%= 'class=bold' if params[:ft] && params[:ft] == 'bungaku' %>><%= button_to '文学・思想', root_path(@books.category_id) %></div>
-    </div>
-    <hr>
+  <div class="category">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, root_path(category: category) %>
+    <% end %>
+  </div>
+  <hr>
   
   <div>
   <%= button_to 'Bookを登録', new_book_path, method: :get, class: 'btn btn-primary' %>
