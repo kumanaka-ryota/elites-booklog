@@ -11,7 +11,7 @@ RSpec.describe ReviewsHelper, type: :helper do
     end
     
     it "レビューがある場合は、その平均点を返す(小数あり)" do
-      expect(review_average([create(:review, rank: 3), create(:review, rank: 4),create(:review, rank: 4)])).to eq 3.6666666666666665
+      expect(review_average([create(:review, rank: 3), create(:review, rank: 4),create(:review, rank: 4)])).to eq 3.67
     end
   end
 end

@@ -6,9 +6,8 @@
     Bookリスト
   </div>
   <%= render 'books/social_buttons', url: request.url %>
-
   <hr>
-    <!--下記追加-->  
+    <!--下記追加-->
   <% if  user_signed_in? %>
     <div class="filter">
       <div <%= 'class=bold' unless params[:ft] %>><%= link_to '全て', root_path %></div>
@@ -16,7 +15,13 @@
       <div <%= 'class=bold' if params[:ft] && params[:ft] == 'bookmark' %>><%= link_to 'ブックマーク', root_path(ft: 'bookmark') %></div>
     </div>
     <hr>
+
   <% end %>
+  
+   <div class="category">
+      <div <%= 'class=bold' if params[:ft] && params[:ft] == 'bungaku' %>><%= button_to '文学・思想', root_path(@books.category_id) %></div>
+    </div>
+    <hr>
   
   <div>
   <%= button_to 'Bookを登録', new_book_path, method: :get, class: 'btn btn-primary' %>
