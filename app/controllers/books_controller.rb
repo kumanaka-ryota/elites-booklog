@@ -2,18 +2,15 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @categories = Category.all
     if user_signed_in? && params[:ft] && params[:ft] == 'my'
       @books = Book.includes(:bookmarks, :reviews, :user).where(user_id: current_user.id).order('updated_at DESC')
-      @categories = Category.all
     elsif user_signed_in? && params[:ft] && params[:ft] == 'bookmark'
       @books = Book.joins(:bookmarks).where('bookmarks.user_id = ?', current_user.id).order('updated_at DESC')
-      @categories = Category.all
     elsif user_signed_in? && params[:category]
       @books = Book.includes(:bookmarks, :reviews, :user).where('books.category_id = ?', params[:category]).order('updated_at DESC')
-      @categories = Category.all
     else
       @books = Book.includes(:bookmarks, :reviews, :user).order('updated_at DESC')
-      @categories = Category.all
     end
   end
   
