@@ -48,9 +48,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :image %><br/>
-      <%= f.file_field :image %>
-      <%= f.hidden_field :image_cache %>
+      <%= f.label :category_id %><br/>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: true}, {class: 'form-control'} %>
     </div>
 
     <div class="actions">
